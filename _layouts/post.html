@@ -1,0 +1,302 @@
+---
+layout: default
+---
+
+<div class="blog-post-section">
+    <div class="site-wrapper">
+        <div class="blog-post-header">
+            <div class="site-content">
+                <p class="sub-heading">{{ page.date | date: "%B %d, %Y" }}</p>
+                <h1>{{ page.title }}</h1>
+                {% if page.author %}
+                <p class="post-author">By {{ page.author }}</p>
+                {% endif %}
+                {% if page.featured_image %}
+                <div class="post-featured-image">
+                    <img src="{{ page.featured_image }}" alt="{{ page.title }}" />
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="blog-post-content">
+            <div class="site-content">
+                {{ content }}
+            </div>
+        </div>
+        
+        <div class="blog-post-footer">
+            <div class="site-content">
+                <div class="post-navigation">
+                    {% if page.previous %}
+                    <div class="prev-post">
+                        <a href="{{ page.previous.url }}" class="link-btn">← Previous Post</a>
+                        <p>{{ page.previous.title }}</p>
+                    </div>
+                    {% endif %}
+                    
+                    {% if page.next %}
+                    <div class="next-post">
+                        <a href="{{ page.next.url }}" class="link-btn">Next Post →</a>
+                        <p>{{ page.next.title }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="back-to-blog">
+                    <a href="blog.html" class="link-btn">← Back to Blog</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.blog-post-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.blog-post-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.blog-post-header h1 {
+    font-size: 3.2rem;
+    color: #0F2E5F; /* Dark blue from your theme */
+    margin: 20px 0;
+    line-height: 1.2;
+    font-weight: bold;
+}
+
+.sub-heading {
+    color: #F04405; /* Orange from your theme */
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.post-author {
+    color: #7f8c8d;
+    font-style: italic;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.post-featured-image {
+    margin: 40px 0;
+    text-align: center;
+}
+
+.post-featured-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease-in-out;
+}
+
+.post-featured-image img:hover {
+    transform: scale(1.02);
+}
+
+.blog-post-content {
+    background: white;
+    padding: 60px 80px;
+    margin: 40px auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    line-height: 1.8;
+    font-size: 1.15rem;
+    max-width: 900px; /* Max width for readability */
+}
+
+.blog-post-content p {
+    margin-bottom: 25px;
+    color: #444;
+}
+
+.blog-post-content h2 {
+    color: #0F2E5F;
+    margin: 50px 0 25px 0;
+    font-size: 2.2rem;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.blog-post-content h3 {
+    color: #0F2E5F;
+    margin: 40px 0 20px 0;
+    font-size: 1.8rem;
+}
+
+.blog-post-content ul,
+.blog-post-content ol {
+    margin-bottom: 25px;
+    padding-left: 30px;
+}
+
+.blog-post-content ul li {
+    list-style: disc;
+    margin-bottom: 10px;
+}
+
+.blog-post-content ol li {
+    list-style: decimal;
+    margin-bottom: 10px;
+}
+
+.blog-post-content a {
+    color: #F04405;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.blog-post-content a:hover {
+    color: #d43a04;
+    text-decoration: underline;
+}
+
+.blog-post-content blockquote {
+    border-left: 5px solid #F04405;
+    padding: 15px 25px;
+    margin: 30px 0;
+    background-color: #fff7f2;
+    color: #555;
+    font-style: italic;
+    border-radius: 5px;
+}
+
+.blog-post-content pre {
+    background-color: #eee;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 25px;
+}
+
+.blog-post-content code {
+    font-family: 'Courier New', monospace;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.blog-post-footer {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    gap: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+.prev-post, .next-post {
+    flex: 1;
+    text-align: center;
+}
+
+.post-navigation .link-btn {
+    display: inline-block;
+    background-color: #0F2E5F;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.post-navigation .link-btn:hover {
+    background-color: #F04405;
+}
+
+.post-navigation p {
+    margin-top: 15px;
+    color: #555;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.back-to-blog {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #ecf0f1;
+}
+
+.back-to-blog .link-btn {
+    display: inline-block;
+    background-color: #7f8c8d;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.back-to-blog .link-btn:hover {
+    background-color: #555;
+}
+
+@media (max-width: 768px) {
+    .blog-post-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .blog-post-content {
+        padding: 40px 30px;
+    }
+
+    .blog-post-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .blog-post-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .post-navigation {
+        flex-direction: column;
+    }
+    
+    .next-post {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-post-header h1 {
+        font-size: 2rem;
+    }
+    
+    .blog-post-content {
+        padding: 30px 15px;
+        font-size: 1rem;
+    }
+
+    .blog-post-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .blog-post-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .post-navigation .link-btn,
+    .back-to-blog .link-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+</style>
+
